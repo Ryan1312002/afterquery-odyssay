@@ -1,6 +1,8 @@
 # Odyssey draft — Bonded lot ledger and duty-drawback engine
 
-Paste these fields into the Odyssey draft form. `workingSlug` is `bonded-lot-drawback-engine`. The uploadable ZIP is `dist/bonded-lot-drawback-engine.zip`.
+Paste these fields into the Odyssey draft form. `workingSlug` is `bonded-lot-drawback-engine`.
+
+Upload **only** `dist/bonded-lot-drawback-engine.zip`. Do not zip the folder again. The archive already has `task.toml`, `instruction.md`, `environment/Dockerfile`, `tests/test.sh`, and `solution/solve.sh` at the root of the ZIP. A wrapper folder (`bonded-lot-drawback-engine/...`) is rejected as “required file missing.”
 
 ---
 
