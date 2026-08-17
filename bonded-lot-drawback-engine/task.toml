@@ -1,0 +1,42 @@
+schema_version = "1.4"
+
+[task]
+name = "odyssey/bonded-lot-drawback-engine"
+version = "1.0.0"
+description = "Implement Bondwright, a bonded-warehouse lot ledger with FIFO withdrawals, a five-year importation clock, manufacturing-in-bond, and unused/substitution duty drawback."
+authors = [{ name = "Ryan", email = "stackedge.ai1123@gmail.com" }]
+keywords = ["python", "customs", "bonded-warehouse", "drawback", "fifo", "ledger", "pytest"]
+
+[metadata]
+name = "Bonded lot ledger and duty-drawback engine"
+author_name = "Ryan"
+author_email = "stackedge.ai1123@gmail.com"
+difficulty = "hard"
+category = "software-engineering"
+tags = ["python", "domain-modeling", "ledger", "customs", "product-clone"]
+expert_time_estimate_hours = 12
+difficulty_explanation = """
+Difficulty is in the interacting customs rules, not in the Python. A frontier model that pattern-matches 'inventory FIFO' still has to get calendar-year expiry (including Feb 29), independent per-line banker's rounding, 99% drawback of duty actually assessed, 8-digit vs 10-digit HTS matching for substitution, manufacturing-in-bond inheriting the earliest input importation date, rewarehouse that must not reset the clock, and as-of replay over an event journal rather than a mutable snapshot. The starter code looks complete and is wrong in several of those places, so an agent that trusts the skeleton ships a plausible ledger that fails held-out cases.
+"""
+solution_explanation = """
+The reference solution replaces the intern skeleton with an event-sourced ledger: every mutation is a typed journal record, and every report reconstructs state by replaying events with timestamp <= as-of (end of that UTC day when a date is given). Lots carry original and remaining quantity/value so withdrawals can pro-rate entered value against the original quantity, round duty with Decimal ROUND_HALF_EVEN to cents, and support specific-id or FIFO (import date, entry number, line, lot id). Drawback designates duty-paid remainder, unused requiring 10-digit HTS + COO identity and substitution requiring the first eight HTS digits, refunding 99% of assessed duty. Manufacturing consumes bonded inputs and emits a bonded output lot whose clock is the earliest consumed import date.
+"""
+verification_explanation = """
+Visible smoke tests live in the image at tests/public and only cover API shape plus a couple of numerical examples. The sealed verifier under tests/ drives held-out journals (hand-computed money and dates, multi-lot FIFO splits, leap-day clocks, substitution, manufacturing inheritance, rewarehouse, CLI/API parity) plus conservation invariants and a small deterministic fuzzer. Reward is the weighted fraction of scoring channels; the oracle reaches 1.0.
+"""
+
+[agent]
+timeout_sec = 14400.0
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 900.0
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0

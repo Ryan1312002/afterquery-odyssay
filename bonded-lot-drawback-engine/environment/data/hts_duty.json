@@ -1,0 +1,37 @@
+{
+  "5109.10.0010": {
+    "duty_ad_valorem": 0.25,
+    "unit": "kg",
+    "description": "wool yarn carded"
+  },
+  "6006.22.1000": {
+    "duty_ad_valorem": 0.1015,
+    "unit": "kg",
+    "description": "knitted cotton fabric"
+  },
+  "6109.10.0012": {
+    "duty_ad_valorem": 0.165,
+    "unit": "doz",
+    "description": "cotton t-shirts, men's"
+  },
+  "6109.10.0027": {
+    "duty_ad_valorem": 0.165,
+    "unit": "doz",
+    "description": "cotton t-shirts, women's"
+  },
+  "6204.62.4011": {
+    "duty_ad_valorem": 0.167,
+    "unit": "doz",
+    "description": "women's cotton trousers"
+  },
+  "8504.40.9570": {
+    "duty_ad_valorem": 0.013,
+    "unit": "ea",
+    "description": "static converters"
+  },
+  "9403.60.8081": {
+    "duty_ad_valorem": 0.0,
+    "unit": "ea",
+    "description": "wooden furniture, other"
+  }
+}

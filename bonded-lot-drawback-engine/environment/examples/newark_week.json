@@ -1,0 +1,66 @@
+[
+  {
+    "type": "warehouse_entry",
+    "ts": "2024-03-04T13:10:00Z",
+    "entry_number": "NRB-24-11002",
+    "line_number": 1,
+    "warehouse_id": "EWR-BOND-4",
+    "hts": "6109.10.0012",
+    "country_of_origin": "VN",
+    "quantity": 1000,
+    "unit": "doz",
+    "entered_value_usd": 25000.00,
+    "import_date": "2024-03-01"
+  },
+  {
+    "type": "warehouse_entry",
+    "ts": "2024-03-05T09:00:00Z",
+    "entry_number": "NRB-24-11088",
+    "line_number": 1,
+    "warehouse_id": "EWR-BOND-4",
+    "hts": "6109.10.0012",
+    "country_of_origin": "VN",
+    "quantity": 400,
+    "unit": "doz",
+    "entered_value_usd": 10800.00,
+    "import_date": "2024-03-05"
+  },
+  {
+    "type": "withdrawal",
+    "ts": "2024-03-12T16:40:00Z",
+    "warehouse_id": "EWR-BOND-4",
+    "purpose": "consumption",
+    "hts": "6109.10.0012",
+    "country_of_origin": "VN",
+    "quantity": 100,
+    "ref": "WD-4401"
+  },
+  {
+    "type": "consumption_entry",
+    "ts": "2024-03-18T11:00:00Z",
+    "entry_number": "NRB-24-20110",
+    "line_number": 1,
+    "hts": "6109.10.0027",
+    "country_of_origin": "BD",
+    "quantity": 80,
+    "unit": "doz",
+    "entered_value_usd": 2200.00,
+    "import_date": "2024-03-18"
+  },
+  {
+    "type": "export_duty_paid",
+    "ts": "2024-03-22T08:15:00Z",
+    "hts": "6109.10.0012",
+    "country_of_origin": "VN",
+    "quantity": 40,
+    "ref": "EXP-12"
+  },
+  {
+    "type": "drawback_claim",
+    "ts": "2024-03-28T10:00:00Z",
+    "kind": "unused",
+    "quantity": 40,
+    "export_ref": "EXP-12",
+    "claim_ref": "DBK-100"
+  }
+]
